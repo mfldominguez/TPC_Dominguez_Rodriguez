@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewWeb", "TPC_RodriguezLeandro\ViewWeb.csproj", "{61B6172B-2DE1-4086-9367-0C6154FE38A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{E7DFC8F5-2658-4B7F-9CD2-8E532CA1378A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{20221B4C-8C6D-4E67-AC62-275D7710533E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61B6172B-2DE1-4086-9367-0C6154FE38A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B6172B-2DE1-4086-9367-0C6154FE38A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B6172B-2DE1-4086-9367-0C6154FE38A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B6172B-2DE1-4086-9367-0C6154FE38A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7DFC8F5-2658-4B7F-9CD2-8E532CA1378A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DFC8F5-2658-4B7F-9CD2-8E532CA1378A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DFC8F5-2658-4B7F-9CD2-8E532CA1378A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DFC8F5-2658-4B7F-9CD2-8E532CA1378A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20221B4C-8C6D-4E67-AC62-275D7710533E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20221B4C-8C6D-4E67-AC62-275D7710533E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20221B4C-8C6D-4E67-AC62-275D7710533E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20221B4C-8C6D-4E67-AC62-275D7710533E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5195C98C-96AB-4482-A972-6A67655A8348}
+	EndGlobalSection
+EndGlobal

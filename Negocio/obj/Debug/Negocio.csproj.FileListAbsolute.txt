@@ -1,0 +1,27 @@
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\bin\Debug\Negocio.dll
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\bin\Debug\Dominio.dll
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.dll
+C:\Users\Usuario\source\repos\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\bin\Debug\Negocio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\bin\Debug\Dominio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\obj\Debug\Negocio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\bin\Debug\Negocio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\bin\Debug\Dominio.dll
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\Negocio\obj\Debug\Negocio.csproj.CopyComplete
