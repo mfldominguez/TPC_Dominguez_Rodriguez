@@ -38,8 +38,9 @@ CREATE TABLE Solicitudes(
 	ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	IDCliente INT NOT NULL,
 	IDUsuario BIGINT NOT NULL,
-	IDSintoma INT NOT NULL,
+	IDProblematica INT NOT NULL,
 	IDPrioridad INT NOT NULL,
+	IDComentario INT NOT NULL,
 	Titulo VARCHAR(100),
 	Descripcion VARCHAR(500),
 	IDEstado INT NOT NULL,
@@ -48,10 +49,9 @@ CREATE TABLE Solicitudes(
 )
 GO
 CREATE TABLE Comentarios(
-	ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	IDSolicitud BIGINT NOT NULL,
+	ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	IDUsuario BIGINT NOT NULL,
-	FechaComent date not null,
+	FechaComentario date not null,
 	Comentario VARCHAR(500) NOT NULL
 )
 GO
@@ -60,7 +60,7 @@ CREATE TABLE Estado_de_Solicitud(
 	Nombre VARCHAR(50) NOT NULL
 )
 GO
-CREATE TABLE Sintomas(
+CREATE TABLE Problematicas(
 	ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	Nombre VARCHAR(100) NOT NULL,
 	Estado bit not null
@@ -83,7 +83,7 @@ Alter Table Solicitudes
 Add constraint FK_Usuarios Foreign Key(IDUsuario) references Usuarios(ID)
 go
 Alter Table Solicitudes
-Add constraint FK_Sintomas Foreign Key(IDSintoma) references Sintomas(ID)
+Add constraint FK_Problematicas Foreign Key(IDProblematica) references Problematicas(ID)
 go
 Alter Table Solicitudes
 Add constraint FK_Estado Foreign Key(IDEstado) references Estado_de_Solicitud(ID)
@@ -91,9 +91,31 @@ go
 Alter Table Solicitudes
 Add constraint FK_Prioridades Foreign Key(IDPrioridad) references Prioridades(ID)
 go
-Alter Table Comentarios
-Add constraint FK_IDSolicitud Foreign Key(IDSolicitud) references Solicitudes(ID)
+Alter Table Solicitudes
+Add constraint FK_Comentarios Foreign Key(IDComentario) references Comentarios(ID)
 go
 Alter Table Comentarios
 Add constraint FK_IDUsuario Foreign Key(IDUsuario) references Usuarios(ID)
 go
+
+/* Vistas */
+
+Create View VW_ListaUsuarios AS 
+Select U.*, TU.Nombre 
+FROM Usuarios AS U
+INNER JOIN TipoUsuarios as TU ON TU.ID = U.IDTipodeusuario
+GO
+
+Create View VW_ListaClientes AS
+Select * FROM Clientes
+GO
+
+Create View VW_ListaSolicitud AS
+Select S.*, ES.Nombre FROM Solicitudes AS S
+INNER JOIN Clientes AS C ON C.ID = S.IDCliente
+INNER JOIN Usuarios AS U ON U.ID = S.IDUsuario
+INNER JOIN Problematicas AS P ON P.ID = S.IDProblematica
+INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
+GO
+
+/* STORE PROCEDURE */
