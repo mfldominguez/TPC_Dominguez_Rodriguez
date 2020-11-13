@@ -10,7 +10,7 @@ namespace Dominio
     {
         public long ID { get; set; }
         public Cliente Cliente { get; set; }
-        public Sintomas Sintoma { get; set; }
+        public Problematicas Problematica { get; set; }
         public Usuario Usuario { get; set; }
         public string Titulo { get; set; }
         public string Desc { get; set; }
@@ -20,7 +20,7 @@ namespace Dominio
         public Solicitud() 
         {
             this.Cliente = new Cliente();
-            this.Sintoma = new Sintomas();
+            this.Problematica = new Problematicas();
             this.Usuario = new Usuario();
             this.Estado = new Estados();
         }
