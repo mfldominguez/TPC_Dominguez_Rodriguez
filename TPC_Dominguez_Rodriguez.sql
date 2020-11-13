@@ -125,12 +125,13 @@ CREATE PROCEDURE SP_Solicitud(
 )
 AS
 BEGIN
-SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDSintoma, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre 
-FROM Solicitud AS S
-INNER JOIN Cliente AS C ON C.ID = S.IDCliente
+SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDProblematica, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre, S.IDComentario, CM.Comentario, CM.FechaComentario, CM.IDUsuario 
+FROM Solicitudes AS S
+INNER JOIN Clientes AS C ON C.ID = S.IDCliente
 INNER JOIN Usuarios AS U ON U.ID = S.IDUsuario
-INNER JOIN Sintomas AS SS ON SS.ID = S.IDSintoma
-INNER JOIN EstadosdeS AS ES ON ES.ID = S.IDEstado
+INNER JOIN Problematicas AS P ON P.ID = S.IDProblematica
+INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = s.IDEstado
+INNER JOIN Comentarios AS CM ON CM.ID = S.IDComentario 
 WHERE S.ID = @ID
 END
 GO
@@ -140,9 +141,10 @@ Create procedure SP_ListaSolicitud_Abierta(
 )
 AS
 BEGIN
-Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, SI.Nombre FROM Solicitud as S
-INNER JOIN EstadosdeS AS ES ON ES.ID = S.IDEstado
-INNER JOIN Sintomas as SI ON SI.ID = S.IDSintoma
+Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicitudes as S
+INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
+INNER JOIN Problematicas as P ON P.ID = S.IDProblematica
+INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
 WHERE S.IDCliente = @IDCliente AND S.IDEstado between 1 and 2 
 END
 GO
@@ -152,9 +154,10 @@ Create procedure SP_ListaSolicitud_Cerrada(
 )
 AS
 BEGIN
-Select S.ID, S.Titulo, S.FechaInicio, S.FechaFin, ES.Nombre, SI.Nombre FROM Solicitud as S
-INNER JOIN EstadosdeS AS ES ON ES.ID = S.IDEstado
-INNER JOIN Sintomas as SI ON SI.ID = S.IDSintoma
+Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicitudes as S
+INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
+INNER JOIN Problematicas as P ON P.ID = S.IDProblematica
+INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
 WHERE S.IDCliente = IDCliente AND S.IDEstado between 3 and 5
 END
 GO
@@ -162,7 +165,9 @@ GO
 Create procedure SP_Alta_Solicitud(
 	@IDCliente int,
 	@IDUsuario bigint,
-	@IDSintoma int,
+	@IDProblematica int,
+	@IDPrioridad int,
+	@IDComentario int,
 	@Titulo varchar(100),
 	@Descripcion varchar(500),
 	@IDEstado int,
@@ -170,13 +175,13 @@ Create procedure SP_Alta_Solicitud(
 )
 AS 
 BEGIN
-INSERT INTO Solicitud VALUES (@IDCliente, @IDUsuario, @IDSintoma, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
+INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @IDComentario, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
 END
 GO
 
 EXEC SP_Alta_Solicitud 1,1,1,'ASD','ASD',1,'06/07/2020'
 
-INSERT INTO Solicitud VALUES (1,1,1,'asd','asd',1,'6/07/2020', NULL)
+INSERT INTO Solicitudes VALUES (1,1,1,'asd','asd',1,'6/07/2020', NULL)
 go
 
 CREATE PROCEDURE SP_Validar_Usuario(
@@ -186,7 +191,7 @@ CREATE PROCEDURE SP_Validar_Usuario(
 AS
 BEGIN
 SELECT U.*, TU.Nombre FROM Usuarios AS U
-INNER JOIN TipoUsuario as TU ON TU.ID = U.IDTipodeusuario
+INNER JOIN TipoUsuarios as TU ON TU.ID = U.IDTipodeusuario
 WHERE NombreU = @NombreU AND Contraseña = @Contraseña
 END
 GO
@@ -241,7 +246,7 @@ CREATE PROCEDURE SP_Alta_Cliente(
 )
 AS
 BEGIN 
-INSERT INTO Cliente VALUES (@Nombres, @Apellidos, @Estado, @Direccion, @Telefono, @FechaReg)
+INSERT INTO Clientes VALUES (@Nombres, @Apellidos, @Estado, @Direccion, @Telefono, @FechaReg)
 END
 GO
 
@@ -256,7 +261,7 @@ CREATE PROCEDURE SP_Modificar_Cliente(
 )
 AS
 BEGIN
-UPDATE Cliente SET Nombres = @Nombres, Apellidos = @Apellidos, Estado = @Estado, Direccion = @Direccion, Telefono = @Telefono, FechaReg = @FechaReg
+UPDATE Clientes SET Nombres = @Nombres, Apellidos = @Apellidos, Estado = @Estado, Direccion = @Direccion, Telefono = @Telefono, FechaReg = @FechaReg
 WHERE ID = @ID
 END
 GO
@@ -267,32 +272,32 @@ CREATE PROCEDURE SP_Cliente_Inactivo(
 )
 AS
 BEGIN 
-UPDATE Cliente SET Estado = @Estado WHERE ID = @ID
+UPDATE Clientes SET Estado = @Estado WHERE ID = @ID
 END
 GO
 
 CREATE PROCEDURE SP_Alta_Comentario(
-	@IDSolicitud bigint,
 	@IDUsuario bigint,
-	@Comentario varchar(500)
+	@FechaComentario date,
+	@Comentario varchar(500)	
 )
 AS
 BEGIN
-INSERT INTO Comentarios VALUES (@IDSolicitud,@IDUsuario, @Comentario)
+INSERT INTO Comentarios VALUES (@IDUsuario, @FechaComentario, @Comentario)
 END
 GO
 
 Create procedure SP_Listar_Comentarios(
-	@IDSolicitud BIGINT
+	@ID BIGINT
 )
 AS
 BEGIN
-SELECT C.ID, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario
+SELECT C.ID, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
 FROM Comentarios as C
 INNER JOIN Usuarios AS U ON U.ID = C.IDUsuario
-WHERE C.IDSolicitud = @IDSolicitud
+WHERE C.ID = @ID
 END
 GO
 
 Select * from Usuarios 
-Select * from Cliente
+Select * from Clientes
