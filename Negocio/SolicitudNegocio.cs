@@ -27,7 +27,7 @@ namespace Negocio
                     solicitud.Titulo = datos.lector.GetString(1);
                     solicitud.FechaInicio = datos.lector.GetDateTime(2);
                     solicitud.Estado.Nombre = datos.lector.GetString(3);
-                    solicitud.Sintoma.Nombre = datos.lector.GetString(4);
+                    solicitud.Problematica.Nombre = datos.lector.GetString(4);
                     lista.Add(solicitud);
 
                 }
@@ -62,7 +62,7 @@ namespace Negocio
                     solicitud.ID = datos.lector.GetInt64(0);
                     solicitud.Cliente.ID = datos.lector.GetInt32(1);
                     solicitud.Usuario.ID = datos.lector.GetInt64(2);
-                    solicitud.Sintoma.ID = datos.lector.GetInt32(3);
+                    solicitud.Problematica.ID = datos.lector.GetInt32(3);
                     solicitud.Titulo = datos.lector.GetString(4);
                     solicitud.Desc = datos.lector.GetString(5);
                     solicitud.Estado.ID = datos.lector.GetInt32(6);
@@ -100,7 +100,7 @@ namespace Negocio
                     solicitud.Titulo = datos.lector.GetString(1);
                     solicitud.FechaFin = datos.lector.GetDateTime(3);
                     solicitud.Estado.Nombre = datos.lector.GetString(4);
-                    solicitud.Sintoma.Nombre = datos.lector.GetString(5);
+                    solicitud.Problematica.Nombre = datos.lector.GetString(5);
                     lista.Add(solicitud);
 
                 }
@@ -129,7 +129,7 @@ namespace Negocio
                 datos.comando.Parameters.Clear();
                 datos.agregarParametros("@IDCliente", solicitud.Cliente.ID);
                 datos.agregarParametros("@IDUsuario", solicitud.Usuario.ID);
-                datos.agregarParametros("@IDSintoma", solicitud.Sintoma.ID);
+                datos.agregarParametros("@IDProblematica", solicitud.Problematica.ID);
                 datos.agregarParametros("@Titulo", solicitud.Titulo);
                 datos.agregarParametros("@Descripcion", solicitud.Desc);
                 datos.agregarParametros("@IDEstado", solicitud.Estado.ID);
