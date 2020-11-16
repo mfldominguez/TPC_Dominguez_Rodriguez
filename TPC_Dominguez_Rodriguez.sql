@@ -1,5 +1,6 @@
 
 --IMPORTANTE, SE CAMBIO LAS TABLAS A PLURAL, SE AGREGA FECHA A COMENTARIO, SE CREO TABLA PRIORIDADES.
+-- SE CAMBIO COMENTARIOS A DEFAULT POR RELACION DE 1(SOLICITUD) A MUCHOS(COMENTARIOS)
 
 use master
 go
@@ -40,7 +41,6 @@ CREATE TABLE Solicitudes(
 	IDUsuario BIGINT NOT NULL,
 	IDProblematica INT NOT NULL,
 	IDPrioridad INT NOT NULL,
-	IDComentario INT NOT NULL,
 	Titulo VARCHAR(100),
 	Descripcion VARCHAR(500),
 	IDEstado INT NOT NULL,
@@ -50,6 +50,7 @@ CREATE TABLE Solicitudes(
 GO
 CREATE TABLE Comentarios(
 	ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	IDSolicitud BIGINT NOT NULL,
 	IDUsuario BIGINT NOT NULL,
 	FechaComentario date not null,
 	Comentario VARCHAR(500) NOT NULL
@@ -91,11 +92,11 @@ go
 Alter Table Solicitudes
 Add constraint FK_Prioridades Foreign Key(IDPrioridad) references Prioridades(ID)
 go
-Alter Table Solicitudes
-Add constraint FK_Comentarios Foreign Key(IDComentario) references Comentarios(ID)
-go
 Alter Table Comentarios
 Add constraint FK_IDUsuario Foreign Key(IDUsuario) references Usuarios(ID)
+go
+Alter Table Comentarios
+Add constraint FK_IDSoliticud Foreign Key(IDSolicitud) references Solicitudes(ID)
 go
 
 /* Vistas */
@@ -125,13 +126,12 @@ CREATE PROCEDURE SP_Solicitud(
 )
 AS
 BEGIN
-SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDProblematica, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre, S.IDComentario, CM.Comentario, CM.FechaComentario, CM.IDUsuario 
+SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDProblematica, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre
 FROM Solicitudes AS S
 INNER JOIN Clientes AS C ON C.ID = S.IDCliente
 INNER JOIN Usuarios AS U ON U.ID = S.IDUsuario
 INNER JOIN Problematicas AS P ON P.ID = S.IDProblematica
 INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = s.IDEstado
-INNER JOIN Comentarios AS CM ON CM.ID = S.IDComentario 
 WHERE S.ID = @ID
 END
 GO
@@ -167,7 +167,6 @@ Create procedure SP_Alta_Solicitud(
 	@IDUsuario bigint,
 	@IDProblematica int,
 	@IDPrioridad int,
-	@IDComentario int,
 	@Titulo varchar(100),
 	@Descripcion varchar(500),
 	@IDEstado int,
@@ -175,7 +174,7 @@ Create procedure SP_Alta_Solicitud(
 )
 AS 
 BEGIN
-INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @IDComentario, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
+INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
 END
 GO
 
@@ -278,24 +277,25 @@ GO
 
 CREATE PROCEDURE SP_Alta_Comentario(
 	@IDUsuario bigint,
+	@IDSolicitud bigint,
 	@FechaComentario date,
 	@Comentario varchar(500)	
 )
 AS
 BEGIN
-INSERT INTO Comentarios VALUES (@IDUsuario, @FechaComentario, @Comentario)
+INSERT INTO Comentarios VALUES (@IDUsuario, @IDSolicitud, @FechaComentario, @Comentario)
 END
 GO
 
 Create procedure SP_Listar_Comentarios(
-	@ID BIGINT
+	@IDSolicitud BIGINT
 )
 AS
 BEGIN
 SELECT C.ID, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
 FROM Comentarios as C
 INNER JOIN Usuarios AS U ON U.ID = C.IDUsuario
-WHERE C.ID = @ID
+WHERE C.ID = @IDSolicitud
 END
 GO
 
