@@ -187,3 +187,7 @@ C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\TPC_RodriguezLeandro\bin\D
 C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\TPC_RodriguezLeandro\bin\Negocio.pdb
 C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\TPC_RodriguezLeandro\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Usuario\Desktop\TPC_RodriguezLeandro - copia\TPC_RodriguezLeandro\obj\Debug\ViewWeb.csproj.CopyComplete
+C:\Users\Usuario\Desktop\sad\TPC_Dominguez_Rodriguez\TPC_RodriguezLeandro\obj\Debug\ViewWeb.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\sad\TPC_Dominguez_Rodriguez\TPC_RodriguezLeandro\obj\Debug\ViewWeb.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\sad\TPC_Dominguez_Rodriguez\TPC_RodriguezLeandro\obj\Debug\TPC_RodriguezLeandro.dll
+C:\Users\Usuario\Desktop\sad\TPC_Dominguez_Rodriguez\TPC_RodriguezLeandro\obj\Debug\TPC_RodriguezLeandro.pdb

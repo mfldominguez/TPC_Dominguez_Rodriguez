@@ -17,7 +17,7 @@ namespace Negocio
             {
                 datos.SetearSP("SP_Alta_Comentario");
                 datos.comando.Parameters.Clear();
-                datos.agregarParametros("@IDSolicitud", comentarios.solicitud.ID);
+                datos.agregarParametros("@IDSolicitud", comentarios.IDSolicitud);
                 datos.agregarParametros("@IDUsuario", comentarios.Usuario.ID);
                 datos.agregarParametros("@FechaComentario", comentarios.FechaComentario);
                 datos.agregarParametros("@Comentario", comentarios.Comentario);

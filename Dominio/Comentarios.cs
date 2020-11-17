@@ -10,7 +10,7 @@ namespace Dominio
     {
         public long ID { get; set; }
         public Usuario Usuario { get; set; }
-        public Solicitud solicitud { get; set; }
+        public long IDSolicitud { get; set; }
         public DateTime FechaComentario { get; set; }
         public string Comentario { get; set; }
 
