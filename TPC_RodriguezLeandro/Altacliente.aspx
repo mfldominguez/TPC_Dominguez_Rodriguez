@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <asp:Button Style="margin-top: 10px" ID="btnAgregar" CssClass="btn btn-primary" Text="Agregar" runat="server" OnClick="btnModificar_Click" />
+                    <asp:Button Style="margin-top: 10px" ID="btnAgregar" CssClass="btn btn-primary" Text="Agregar" runat="server" OnClick="btnAgregar_Click"  />
                 </div>
             </div>
         </div>

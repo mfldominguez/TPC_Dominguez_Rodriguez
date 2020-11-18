@@ -15,8 +15,8 @@ namespace TPC_RodriguezLeandro
         public Cliente cliente { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            SintomasNegocio sintomasnegocio = new SintomasNegocio();
-            ddlProblemas.DataSource = sintomasnegocio.listar();
+            ProblematicasNegocio problematicasNegocio = new ProblematicasNegocio();
+            ddlProblemas.DataSource = problematicasNegocio.listar();
             ddlProblemas.DataValueField = "ID";
             ddlProblemas.DataTextField = "Nombre";
             ddlProblemas.DataBind();
@@ -43,8 +43,8 @@ namespace TPC_RodriguezLeandro
                 nuevasoli.Desc = txtDescripcion.Text.ToString();
                 nuevasoli.FechaInicio = DateTime.Today;
                 nuevasoli.Estado.ID = 1;
-                nuevasoli.Sintoma.ID = Convert.ToInt32(ddlProblemas.SelectedValue);
-                nuevasoli.Sintoma.Nombre = ddlProblemas.Text; 
+                nuevasoli.Problematica.ID = Convert.ToInt32(ddlProblemas.SelectedValue);
+                nuevasoli.Problematica.Nombre = ddlProblemas.Text; 
                  
                 solinegocio.Alta(nuevasoli);
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalAltaSolicitud", "$('#modalAltaSolicitud').modal();", true);

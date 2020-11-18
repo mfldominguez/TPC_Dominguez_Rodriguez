@@ -16,7 +16,7 @@ namespace TPC_RodriguezLeandro
 
         }
 
-        protected void btnModificar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
             AccesoaDatos datos = new AccesoaDatos();
             ClienteNegocio negocio = new ClienteNegocio();
@@ -27,9 +27,10 @@ namespace TPC_RodriguezLeandro
                 cliente.Apellidos = txtApellidos.Text;
                 cliente.Direccion = txtDireccion.Text;
                 cliente.Telefono = txtTelefono.Text;
+                cliente.FechaReg = DateTime.Today;
                 cliente.Estado = true;
                 negocio.alta(cliente);
-                Response.Redirect("Abmcliente.aspx");
+                Response.Redirect("AbmClientes.aspx");
             }
             catch (Exception ex)
             {

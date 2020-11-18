@@ -8,7 +8,7 @@ using Dominio;
 
 namespace Negocio
 {
-    public class SintomasNegocio
+    public class ProblematicasNegocio
     {
 
         public void alta(string nombre)
@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearQuery("INSERT INTO Sintomas VALUES (@Nombre)");
+                datos.SetearQuery("INSERT INTO Problematicas VALUES (@Nombre)");
                 datos.agregarParametros("@Nombre", nombre);
                 datos.EjecutarAccion();
             }
@@ -30,15 +30,15 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
-        public void modificar(Sintomas sintoma)
+        public void modificar(Problematicas problematica)
         {
             AccesoaDatos datos = new AccesoaDatos();
 
             try
             {
-                datos.SetearQuery("UPDATE Sintomas SET Nombre = @Nombre WHERE ID = @ID");
-                datos.agregarParametros("@Nombre", sintoma.Nombre);
-                datos.agregarParametros("@ID", sintoma.ID);
+                datos.SetearQuery("UPDATE Problematica SET Nombre = @Nombre WHERE ID = @ID");
+                datos.agregarParametros("@Nombre", problematica.Nombre);
+                datos.agregarParametros("@ID", problematica.ID);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
@@ -50,23 +50,23 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
-        public List<Sintomas> listar()
+        public List<Problematicas> listar()
         {
 
             AccesoaDatos datos = new AccesoaDatos();
-            Sintomas sintoma;
-            List<Sintomas> lista = new List<Sintomas>();
+            Problematicas problematica;
+            List<Problematicas> lista = new List<Problematicas>();
 
             try
             {
-                datos.SetearQuery("SELECT * FROM Sintomas");
+                datos.SetearQuery("SELECT * FROM Problematicas");
                 datos.EjecutarLector();
                 while (datos.lector.Read())
                 {
-                    sintoma = new Sintomas();
-                    sintoma.ID = datos.lector.GetInt32(0);
-                    sintoma.Nombre = datos.lector.GetString(1);
-                    lista.Add(sintoma);
+                    problematica = new Problematicas();
+                    problematica.ID = datos.lector.GetInt32(0);
+                    problematica.Nombre = datos.lector.GetString(1);
+                    lista.Add(problematica);
 
                 }
                 return lista;
