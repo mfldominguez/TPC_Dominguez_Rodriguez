@@ -13,6 +13,11 @@
             <asp:DropDownList ID="ddlProblemas" CssClass="form-control" runat="server">
             </asp:DropDownList>
         </div>
+            <div class="form-group">
+            <label style="margin-left: 10px" for="exampleFormControlSelect2">Prioridad</label>
+            <asp:DropDownList ID="ddlPrioridad" CssClass="form-control" runat="server">
+            </asp:DropDownList>
+        </div>
         <label style="margin-left: 10px; margin-top: 10px; height: 24px; width: 111px;" for="exampleFormControlTextarea1">Descripcion</label>
         <div class="form-group">
 

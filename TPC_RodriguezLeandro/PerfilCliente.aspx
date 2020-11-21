@@ -35,7 +35,7 @@
             <tr>
                 <th scope="row"><% = item.ID %></th>
                 <td><% = item.Titulo %></td>
-                <td><% = item.Sintoma.Nombre %></td>
+                <td><% = item.Problematica.Nombre %></td>
                 <td><% = item.Estado.Nombre %></td>
                 <td><% = item.FechaInicio.ToShortDateString() %></td>
                 <td>
@@ -62,7 +62,7 @@
             <tr>
                 <th scope="row"><% = item.ID %></th>
                 <td><% = item.Titulo %></td>
-                <td><% = item.Sintoma.Nombre %></td>
+                <td><% = item.Problematica.Nombre %></td>
                 <td><% = item.Estado.Nombre %></td>
                 <td><% = item.FechaFin %></td>
                 <td>

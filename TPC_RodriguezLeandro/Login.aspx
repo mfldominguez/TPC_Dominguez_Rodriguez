@@ -21,6 +21,5 @@
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" runat="server" OnClick="btnAceptar_Click" />
             </div>
         </div>
-
-    </div>
+             </div>
 </asp:Content>

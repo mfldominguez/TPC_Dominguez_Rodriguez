@@ -6,6 +6,7 @@
         <div class="card-body">
             <h5 class="card-title"><% = solicitud.ID %></h5>
             <p class="card-text"><% = solicitud.Titulo %></p>
+            <p class="card-text"><% = solicitud.Desc %></p>
 
             <p class="card-text"><% = solicitud.Usuario.Nombres + " " + solicitud.Usuario.Apellidos %></p>
             <p class="card-text"><% = solicitud.FechaInicio.ToShortDateString() %></p>
@@ -17,9 +18,10 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><% = item.ID %></h5>
-                <p class="card-text"><% = item.solicitud%></p>
+<%--                <p class="card-text"><% = item.FechaComentario%></p>--%>
                 <p class="card-text"><% = item.Usuario.Nombres + " " + item.Usuario.Apellidos%></p>
                 <p class="card-text"><% = item.Comentario%> </p>
+                
             </div>
         </div>
         <% } %>

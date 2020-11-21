@@ -30,7 +30,12 @@
                     <a href="ModificarCliente.aspx?idc=<%=item.ID %>">Modificar</a>
                 </td>
                 <td>
+                    <% if (item.Estado == true)
+                        {%>
                     <a href="EliminarCliente.aspx?idc=<%=item.ID %>">Inactivar</a>
+                    <%} %>
+                    <a href="AbmClientes.aspx?idc=<%=item.ID %>">Activar</a>
+
                 </td>
 
             </tr>

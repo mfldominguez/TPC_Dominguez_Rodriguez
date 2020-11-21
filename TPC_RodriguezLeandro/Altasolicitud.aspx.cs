@@ -20,6 +20,14 @@ namespace TPC_RodriguezLeandro
             ddlProblemas.DataValueField = "ID";
             ddlProblemas.DataTextField = "Nombre";
             ddlProblemas.DataBind();
+
+            PrioridadNegocio prioridadNegocio = new PrioridadNegocio();
+            ddlPrioridad.DataSource = prioridadNegocio.listar();
+            ddlPrioridad.DataValueField = "ID";
+            ddlPrioridad.DataTextField = "Nombre";
+            ddlPrioridad.DataBind();
+
+
             ClienteNegocio negocio = new ClienteNegocio();
             List<Cliente> listacliente = new List<Cliente>();
             listacliente = negocio.listar();
@@ -44,7 +52,10 @@ namespace TPC_RodriguezLeandro
                 nuevasoli.FechaInicio = DateTime.Today;
                 nuevasoli.Estado.ID = 1;
                 nuevasoli.Problematica.ID = Convert.ToInt32(ddlProblemas.SelectedValue);
-                nuevasoli.Problematica.Nombre = ddlProblemas.Text; 
+                nuevasoli.Problematica.Nombre = ddlProblemas.Text;
+                nuevasoli.Prioridad.ID = Convert.ToInt32(ddlPrioridad.SelectedValue);
+                nuevasoli.Prioridad.Nombre = ddlPrioridad.Text;
+                
                  
                 solinegocio.Alta(nuevasoli);
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalAltaSolicitud", "$('#modalAltaSolicitud').modal();", true);

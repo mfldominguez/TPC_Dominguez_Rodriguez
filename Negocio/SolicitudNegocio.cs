@@ -134,6 +134,7 @@ namespace Negocio
                 datos.agregarParametros("@Descripcion", solicitud.Desc);
                 datos.agregarParametros("@IDEstado", solicitud.Estado.ID);
                 datos.agregarParametros("@FechaInicio", solicitud.FechaInicio);
+                datos.agregarParametros("@IDPrioridad", solicitud.Prioridad.ID);
                 datos.EjecutarAccion();
 
             }
