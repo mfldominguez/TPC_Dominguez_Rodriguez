@@ -301,3 +301,39 @@ GO
 
 Select * from Usuarios 
 Select * from Clientes
+
+/* INSERTS */
+
+INSERT INTO Prioridades VALUES ( 'Baja' )
+go
+INSERT INTO Prioridades VALUES ( 'Media' )
+go
+INSERT INTO Prioridades VALUES ( 'Alta' )
+go
+INSERT INTO Prioridades VALUES ( 'Critica' )
+go
+
+INSERT INTO Problematicas VALUES ( 'Falla fisica', 1 )
+go
+INSERT INTO Problematicas VALUES ( 'Falla logica', 1 )
+go
+INSERT INTO Problematicas VALUES ( 'Solicitud de respuesto', 1)
+go
+
+INSERT INTO TipoUsuarios VALUES ( 'Administrador' )
+go
+INSERT INTO TipoUsuarios VALUES ( 'Gerente' )
+go
+INSERT INTO TipoUsuarios VALUES ( 'Operador' )
+go
+
+INSERT INTO Estado_de_Solicitud VALUES ( 'Abierto' )
+go
+INSERT INTO Estado_de_Solicitud VALUES ( 'En analisis' )
+go
+INSERT INTO Estado_de_Solicitud VALUES ( 'Solucionado' )
+go
+INSERT INTO Estado_de_Solicitud VALUES ( 'Rechazado' )
+go
+INSERT INTO Estado_de_Solicitud VALUES ( 'Cerrado' )
+go
