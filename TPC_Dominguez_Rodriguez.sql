@@ -276,16 +276,17 @@ END
 GO
 
 CREATE PROCEDURE SP_Alta_Comentario(
-	@IDUsuario bigint,
 	@IDSolicitud bigint,
+	@IDUsuario bigint,
 	@FechaComentario date,
 	@Comentario varchar(500)	
 )
 AS
 BEGIN
-INSERT INTO Comentarios VALUES (@IDUsuario, @IDSolicitud, @FechaComentario, @Comentario)
+INSERT INTO Comentarios VALUES (@IDSolicitud , @IDUsuario, @FechaComentario, @Comentario)
 END
 GO
+
 
 Create procedure SP_Listar_Comentarios(
 	@IDSolicitud BIGINT
@@ -295,7 +296,7 @@ BEGIN
 SELECT C.ID, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
 FROM Comentarios as C
 INNER JOIN Usuarios AS U ON U.ID = C.IDUsuario
-WHERE C.ID = @IDSolicitud
+WHERE C.IDSolicitud = @IDSolicitud
 END
 GO
 
@@ -337,3 +338,21 @@ INSERT INTO Estado_de_Solicitud VALUES ( 'Rechazado' )
 go
 INSERT INTO Estado_de_Solicitud VALUES ( 'Cerrado' )
 go
+
+INSERT INTO Usuarios VALUES ( 1 , 'fer', '123' , 'Fernando' , 'Dominguez' , 1)
+go
+INSERT INTO Usuarios VALUES ( 1 , 'lean', '123' , 'Leandro' , 'Rodriguez' , 1)
+go
+
+INSERT INTO Clientes VALUES ( 'Pepe' , 'Gomez' , 1 , '1 de mayo 123' , '47442323' , '2020/11/22' )
+go
+INSERT INTO Clientes VALUES ( 'Nestor' , 'Vive' , 1 , 'Almirante Brown 2234' , '47152345' , '2020/11/20' )
+go
+
+INSERT INTO Solicitudes VALUES ( 1 , 1 , 1 , 1 , 'Falla en la cortadora' , 'No corta la carne' , 1 , '2020/11/22', null )
+go
+
+INSERT INTO Comentarios VALUES ( 1 , 1 , '2020/11/22', 'Se llamo al fabricante' )
+go
+
+select * from Comentarios

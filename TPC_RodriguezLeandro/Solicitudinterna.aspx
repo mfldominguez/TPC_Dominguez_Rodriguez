@@ -12,19 +12,32 @@
             <p class="card-text"><% = solicitud.FechaInicio.ToShortDateString() %></p>
         </div>
     </div>
+                
+    <asp:Label Text="Comentario" ID="lblComentario" runat="server" />
+     <div class="form-group">
+
+        <asp:TextBox Style="margin-left: 10px; margin-top: 10px" ID="txtComentario" runat="server" TextMode="MultiLine" Width="551px" Height="146px" />
+      </div>
+        <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnAltaComentario" Text="Comentar" runat="server" Width="214px" OnClick="btnAltaComentario_Click" />
+    
+            
     <div class="card-columns" style="margin-left: 15px; margin-right: 5px;">
-        <%       foreach (var item in lista)
-            { %>
+
+        <%int NumeroComentario = 1;       
+          foreach (var item in lista)
+            {
+                %>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><% = item.ID %></h5>
-<%--                <p class="card-text"><% = item.FechaComentario%></p>--%>
+                <h5 class="card-title"><% = NumeroComentario %></h5>
                 <p class="card-text"><% = item.Usuario.Nombres + " " + item.Usuario.Apellidos%></p>
                 <p class="card-text"><% = item.Comentario%> </p>
+                <p class="card-text"><% = item.FechaComentario%> </p>
+                
                 
             </div>
         </div>
-        <% } %>
+        <% NumeroComentario = NumeroComentario + 1; } %>
     </div>
 
     

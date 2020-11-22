@@ -32,5 +32,33 @@ namespace TPC_RodriguezLeandro
             }
 
         }
+
+        protected void btnAltaComentario_Click(object sender, EventArgs e)
+        {
+            ComentarioNegocio comentarioNegocio = new ComentarioNegocio();
+            Comentarios comentario = new Comentarios();
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)Session[Session.SessionID + "usuario"];
+
+            try
+            {
+                
+                comentario.IDSolicitud = Convert.ToInt64(Request.QueryString["ids"].ToString());
+                comentario.Usuario.ID = usuario.ID;
+                comentario.FechaComentario = DateTime.Today;
+                comentario.Comentario = txtComentario.Text;
+
+                comentarioNegocio.alta(comentario);
+
+                Response.Redirect("SolicitudInterna.aspx?ids=" + comentario.IDSolicitud);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

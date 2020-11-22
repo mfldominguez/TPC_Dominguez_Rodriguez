@@ -49,7 +49,7 @@ namespace Negocio
                 while (datos.lector.Read())
                 {
                     comentarios = new Comentarios();
-                    comentarios.ID = datos.lector.GetInt64(0);
+                    comentarios.ID = datos.lector.GetInt32(0);
                     comentarios.Usuario.ID = datos.lector.GetInt64(1);
                     comentarios.Usuario.Nombres = datos.lector.GetString(2);
                     comentarios.Usuario.Apellidos = datos.lector.GetString(3);
