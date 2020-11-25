@@ -22,7 +22,7 @@
                 <th scope="row"><% = item.ID %></th>
                 <td><% = item.NombreUsuario %></td>
                 <td><% = item.Nombres + " " + item.Apellidos %></td>
-                <td><% = item.Tipo %></td>
+                <td><% = item.Tipo.Nombre %></td>
                 <td><% = item.Estado %></td>
                 <td>
                     <a href="ModificarUsuario.aspx?idu=<%=item.ID %>">Modificar</a>

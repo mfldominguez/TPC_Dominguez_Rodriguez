@@ -32,7 +32,8 @@ namespace Negocio
                         usuario.Contraseña = datos.lector.GetString(3);
                         usuario.Nombres = datos.lector.GetString(4);
                         usuario.Apellidos = datos.lector.GetString(5);
-                        usuario.Tipo = datos.lector.GetString(7);
+                        usuario.Tipo.ID = datos.lector.GetInt32(1);
+                        usuario.Tipo.Nombre = datos.lector.GetString(7);
 
                         lista.Add(usuario);
                     }
@@ -69,7 +70,8 @@ namespace Negocio
                     usuario.Contraseña = datos.lector.GetString(3);
                     usuario.Nombres = datos.lector.GetString(4);
                     usuario.Apellidos = datos.lector.GetString(5);
-                    usuario.Tipo = datos.lector.GetString(7);
+                    usuario.Tipo.ID = datos.lector.GetInt32(1);
+                    usuario.Tipo.Nombre = datos.lector.GetString(7);
 
                     lista.Add(usuario);
 
@@ -105,7 +107,7 @@ namespace Negocio
                     if (usuario.Estado)
                     {
                         usuario.ID = datos.lector.GetInt64(0);
-                        usuario.Tipo = datos.lector.GetString(7);
+                        usuario.Tipo.ID = datos.lector.GetInt32(1);
                         usuario.NombreUsuario = datos.lector.GetString(2);
                         usuario.Contraseña = datos.lector.GetString(3);
                         usuario.Nombres = datos.lector.GetString(4);
@@ -130,7 +132,7 @@ namespace Negocio
             {
                 datos.SetearSP("SP_Alta_Usuario");
                 datos.comando.Parameters.Clear();
-                datos.agregarParametros("@IDTipodeusuario", usuario.Tipo);
+                datos.agregarParametros("@IDTipodeusuario", usuario.Tipo.ID);
                 datos.agregarParametros("@NombreU", usuario.NombreUsuario);
                 datos.agregarParametros("@Contraseña", usuario.Contraseña);
                 datos.agregarParametros("@Nombres", usuario.Nombres);

@@ -98,8 +98,10 @@ namespace Negocio
                     solicitud = new Solicitud();
                     solicitud.ID = datos.lector.GetInt64(0);
                     solicitud.Titulo = datos.lector.GetString(1);
-                    solicitud.FechaFin = datos.lector.GetDateTime(3);
-                    solicitud.Estado.Nombre = datos.lector.GetString(4);
+                    // PINCHA PORQUE LA LISTA NO PUEDE DEVOLVER FECHA FIN NULL
+                    solicitud.FechaFin = datos.lector.GetDateTime(2);
+                    solicitud.Estado.Nombre = datos.lector.GetString(3);
+                    solicitud.Prioridad.Nombre = datos.lector.GetString(4);
                     solicitud.Problematica.Nombre = datos.lector.GetString(5);
                     lista.Add(solicitud);
 
@@ -147,7 +149,27 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public void solucionar(Solicitud solicitud)
+        {
+            AccesoaDatos datos = new AccesoaDatos();
+            try
+            {
+                datos.SetearSP("SP_Solucionar");
+                datos.comando.Parameters.Clear();
+                datos.agregarParametros("@ID", solicitud.ID);
+                datos.agregarParametros("@FechaFin", solicitud.FechaFin);
+                datos.EjecutarAccion();
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
 
 
     }

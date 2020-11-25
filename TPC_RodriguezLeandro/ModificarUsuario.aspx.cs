@@ -17,11 +17,22 @@ namespace TPC_RodriguezLeandro
             UsuariosNegocio negocio = new UsuariosNegocio();
             List<Usuario> lista = new List<Usuario>();
             lista = negocio.Listar();
+
+            TipoUsuariosNegocio negocio1 = new TipoUsuariosNegocio();
+            ddlTipoUsuario.DataSource = negocio1.listar();
+            ddlTipoUsuario.DataValueField = "ID";
+            ddlTipoUsuario.DataTextField = "Nombre";
+            ddlTipoUsuario.DataBind();
+
+
             try
             {
                 var idusuario = Convert.ToInt64(Request.QueryString["idu"].ToString());
                 usuario = lista.Find(J => J.ID == idusuario);
-                
+                txtApellidos.Text = usuario.Apellidos;
+                txtNombre.Text = usuario.Nombres;
+                txtUsuario.Text = usuario.NombreUsuario;
+                txtContraseña.Text = usuario.Contraseña;
             }
             catch (Exception ex)
             {
@@ -36,7 +47,7 @@ namespace TPC_RodriguezLeandro
             UsuariosNegocio negocio = new UsuariosNegocio();
             try
             {
-                usuario.Tipo = txtTipo.Text;
+                usuario.Tipo.ID = Convert.ToInt32(ddlTipoUsuario.SelectedValue);
                 usuario.NombreUsuario = txtUsuario.Text;
                 usuario.Contraseña = txtContraseña.Text;
                 usuario.Nombres = txtNombre.Text;

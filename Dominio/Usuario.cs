@@ -14,6 +14,11 @@ namespace Dominio
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public bool Estado { get; set; }
-        public string Tipo { get; set; }
+        public TipoUsuarios Tipo { get; set; }
+
+        public Usuario()
+        {
+            this.Tipo = new TipoUsuarios();
+        }
     }
 }

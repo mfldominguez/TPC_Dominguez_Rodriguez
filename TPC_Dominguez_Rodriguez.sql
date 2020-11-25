@@ -107,6 +107,9 @@ FROM Usuarios AS U
 INNER JOIN TipoUsuarios as TU ON TU.ID = U.IDTipodeusuario
 GO
 
+select * from Usuarios
+select * from TipoUsuarios
+
 Create View VW_ListaClientes AS
 Select * FROM Clientes
 GO
@@ -154,7 +157,7 @@ Create procedure SP_ListaSolicitud_Cerrada(
 )
 AS
 BEGIN
-Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicitudes as S
+Select S.ID, S.Titulo, S.FechaFin, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicitudes as S
 INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
 INNER JOIN Problematicas as P ON P.ID = S.IDProblematica
 INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
@@ -175,6 +178,17 @@ Create procedure SP_Alta_Solicitud(
 AS 
 BEGIN
 INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
+END
+GO
+
+Create Procedure SP_Solucionar(
+	@ID bigint,
+	@FechaFin date
+)
+AS
+BEGIN
+UPDATE Solicitudes SET IDEstado = 3, FechaFin = @FechaFin
+WHERE ID = @ID
 END
 GO
 
@@ -356,3 +370,4 @@ INSERT INTO Comentarios VALUES ( 1 , 1 , '2020/11/22', 'Se llamo al fabricante' 
 go
 
 select * from Comentarios
+select * from Usuarios

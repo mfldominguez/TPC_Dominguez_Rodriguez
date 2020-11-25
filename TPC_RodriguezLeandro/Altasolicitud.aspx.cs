@@ -15,6 +15,9 @@ namespace TPC_RodriguezLeandro
         public Cliente cliente { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if(!IsPostBack)
+            {
             ProblematicasNegocio problematicasNegocio = new ProblematicasNegocio();
             ddlProblemas.DataSource = problematicasNegocio.listar();
             ddlProblemas.DataValueField = "ID";
@@ -26,8 +29,7 @@ namespace TPC_RodriguezLeandro
             ddlPrioridad.DataValueField = "ID";
             ddlPrioridad.DataTextField = "Nombre";
             ddlPrioridad.DataBind();
-
-
+            }
             ClienteNegocio negocio = new ClienteNegocio();
             List<Cliente> listacliente = new List<Cliente>();
             listacliente = negocio.listar();

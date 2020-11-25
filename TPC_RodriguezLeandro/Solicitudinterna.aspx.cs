@@ -60,5 +60,13 @@ namespace TPC_RodriguezLeandro
                 throw;
             }
         }
+
+        protected void btnSolucionar_Click(object sender, EventArgs e)
+        {
+            SolicitudNegocio negocio = new SolicitudNegocio();
+            solicitud.FechaFin = DateTime.Today;
+            negocio.solucionar(solicitud);
+            Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
+        }
     }
 }

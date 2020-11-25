@@ -16,11 +16,16 @@ namespace TPC_RodriguezLeandro
         {
             ClienteNegocio negocio = new ClienteNegocio();
             List<Cliente> lista = new List<Cliente>();
+           
             lista = negocio.listar();
             try
             {
                 var idcliente = Convert.ToInt32(Request.QueryString["idc"].ToString());
                 cliente = lista.Find(J => J.ID == idcliente);
+                txtNombre.Text = cliente.Nombres;
+                txtApellidos.Text = cliente.Apellidos;
+                txtDireccion.Text = cliente.Direccion;
+                txtTelefono.Text = cliente.Telefono;
 
             }
             catch (Exception ex)

@@ -30,11 +30,10 @@
                     <asp:TextBox class="col" TextMode="Password" ID="txtContraseña" runat="server" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col" style="margin-top: 10px">
-                    <asp:Label Text="Tipo de usuario" runat="server" />
-                    <asp:TextBox class="col" ID="txtTipo" runat="server" />
-                </div>
+            <div class="form-group">
+                <label style="margin-left: 10px" for="exampleFormControlSelect2">Tipo de usuario</label>
+                <asp:DropDownList ID="ddlTipoUsuario" CssClass="form-control" runat="server">
+                </asp:DropDownList>
             </div>
             <div class="row">
                 <div class="col">
