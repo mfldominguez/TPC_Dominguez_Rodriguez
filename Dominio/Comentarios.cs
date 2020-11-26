@@ -13,6 +13,7 @@ namespace Dominio
         public long IDSolicitud { get; set; }
         public DateTime FechaComentario { get; set; }
         public string Comentario { get; set; }
+        public bool Solucion { get; set; }
 
         public Comentarios()
         {

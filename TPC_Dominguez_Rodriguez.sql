@@ -53,7 +53,8 @@ CREATE TABLE Comentarios(
 	IDSolicitud BIGINT NOT NULL,
 	IDUsuario BIGINT NOT NULL,
 	FechaComentario date not null,
-	Comentario VARCHAR(500) NOT NULL
+	Comentario VARCHAR(500) NOT NULL,
+	Solucion bit null
 )
 GO
 CREATE TABLE Estado_de_Solicitud(
@@ -161,7 +162,7 @@ Select S.ID, S.Titulo, S.FechaFin, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicit
 INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
 INNER JOIN Problematicas as P ON P.ID = S.IDProblematica
 INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
-WHERE S.IDCliente = IDCliente AND S.IDEstado between 3 and 5
+WHERE S.IDCliente = @IDCliente AND S.IDEstado between 3 and 5
 END
 GO
 
