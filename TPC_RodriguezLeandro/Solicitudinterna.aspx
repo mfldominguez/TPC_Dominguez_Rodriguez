@@ -3,14 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
      <% bool Solucionado = false;
-            foreach (var item in lista)
-            {
-                if (item.Solucion == true)
-                {
-                    Solucionado = true;
-                }
-            }
+         int Contador = 0;
+         int NumeroComentarioSolucion = 0;
+         foreach (var item in lista)
+         {
+             Contador = Contador + 1;
+             if (item.Solucion == true)
+             {
+                 Solucionado = true;
+                 NumeroComentarioSolucion = Contador;
+             }
+         }
             %>
 
     <div class="card" style="width: 50%">
@@ -25,7 +30,7 @@
     </div>
       <% if (Solucionado == true)
           {%>
-    <p> SOLUCIONADOOOOOOOOOO</p>
+    <p> SOLUCIONADO</p>
     <%    } %>
     
 
@@ -43,9 +48,11 @@
 
        
 
-        <%int NumeroComentario = 1;       
-          foreach (var item in lista)
+        <%int NumeroComentario = 1;
+            Contador = 0;
+            foreach (var item in lista)
             {
+                Contador = Contador + 1;
                 %>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -53,8 +60,12 @@
                 <p class="card-text"><% = item.Usuario.Nombres + " " + item.Usuario.Apellidos%></p>
                 <p class="card-text"><% = item.Comentario%> </p>
                 <p class="card-text"><% = item.FechaComentario%> </p>
-               <%-- <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnSolucionar" Text="Solucionar" runat="server" Width="214px" OnClick="btnSolucionar_Click" />
-              --%>
+
+                <% if (NumeroComentarioSolucion == Contador)
+                    {%>
+                <p>COMENTARIO SOLUCION</p>
+                  <%} %>
+
                 <% if (Solucionado == false)
                            {%>
                 <a href="Confirmacion.aspx?idc=<%=item.ID %>&ids=<%=item.IDSolicitud %> ">Solucionar</a>
