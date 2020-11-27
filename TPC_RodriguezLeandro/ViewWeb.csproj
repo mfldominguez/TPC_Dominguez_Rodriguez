@@ -72,6 +72,7 @@
     <Content Include="Altacliente.aspx" />
     <Content Include="Altasolicitud.aspx" />
     <Content Include="Altausuarios.aspx" />
+    <Content Include="Confirmacion.aspx" />
     <Content Include="EliminarCliente.aspx" />
     <Content Include="EliminarUsuario.aspx" />
     <Content Include="Inicio.aspx" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Altausuarios.aspx.designer.cs">
       <DependentUpon>Altausuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Confirmacion.aspx.cs">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmacion.aspx.designer.cs">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminarCliente.aspx.cs">
       <DependentUpon>EliminarCliente.aspx</DependentUpon>

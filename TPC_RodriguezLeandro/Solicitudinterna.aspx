@@ -19,8 +19,9 @@
         <asp:TextBox Style="margin-left: 10px; margin-top: 10px" ID="txtComentario" runat="server" TextMode="MultiLine" Width="551px" Height="146px" />
       </div>
         <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnAltaComentario" Text="Comentar" runat="server" Width="214px" OnClick="btnAltaComentario_Click" />
-        <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="Button1" Text="Solucionar" runat="server" Width="214px" OnClick="btnSolucionar_Click" />
-        
+        <%--<asp:Button Style="margin-left: 10px; margin-top: 10px" ID="Button1" Text="Solucionar" runat="server" Width="214px" OnClick="btnSolucionar_Click" />
+        --%>
+      
             
     <div class="card-columns" style="margin-left: 15px; margin-right: 5px;">
 
@@ -34,8 +35,9 @@
                 <p class="card-text"><% = item.Usuario.Nombres + " " + item.Usuario.Apellidos%></p>
                 <p class="card-text"><% = item.Comentario%> </p>
                 <p class="card-text"><% = item.FechaComentario%> </p>
-                <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnSolucionar" Text="Solucionar" runat="server" Width="214px" OnClick="btnSolucionar_Click" />
-                
+               <%-- <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnSolucionar" Text="Solucionar" runat="server" Width="214px" OnClick="btnSolucionar_Click" />
+              --%>  
+                <a href="Confirmacion.aspx?idc=<%=item.ID %>&ids=<%=item.IDSolicitud %> ">Solucionar</a>
             </div>
         </div>
         <% NumeroComentario = NumeroComentario + 1; } %>

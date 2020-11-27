@@ -183,7 +183,7 @@ namespace Negocio
                 datos.SetearSP("SP_Modificar_Usuario");
                 datos.comando.Parameters.Clear();
                 datos.agregarParametros("@ID", usuario.ID);
-                datos.agregarParametros("@IDTipodeusuario", usuario.Tipo);
+                datos.agregarParametros("@IDTipodeusuario", usuario.Tipo.ID);
                 datos.agregarParametros("@NombreU", usuario.NombreUsuario);
                 datos.agregarParametros("@Contraseña", usuario.Contraseña);
                 datos.agregarParametros("@Nombres", usuario.Nombres);

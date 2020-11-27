@@ -18,12 +18,14 @@ namespace TPC_RodriguezLeandro
             List<Usuario> lista = new List<Usuario>();
             lista = negocio.Listar();
 
+            if(!IsPostBack)
+            {
             TipoUsuariosNegocio negocio1 = new TipoUsuariosNegocio();
             ddlTipoUsuario.DataSource = negocio1.listar();
             ddlTipoUsuario.DataValueField = "ID";
             ddlTipoUsuario.DataTextField = "Nombre";
             ddlTipoUsuario.DataBind();
-
+            }
 
             try
             {
@@ -54,7 +56,7 @@ namespace TPC_RodriguezLeandro
                 usuario.Apellidos = txtApellidos.Text;
                 usuario.Estado = true;
                 negocio.modificar(usuario);
-                Response.Redirect("AbmClientes.aspx");
+                Response.Redirect("AbmUsuario.aspx");
             }
             catch (Exception ex)
             {

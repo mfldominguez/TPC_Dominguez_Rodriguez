@@ -101,8 +101,8 @@ namespace Negocio
                     // PINCHA PORQUE LA LISTA NO PUEDE DEVOLVER FECHA FIN NULL
                     solicitud.FechaFin = datos.lector.GetDateTime(2);
                     solicitud.Estado.Nombre = datos.lector.GetString(3);
-                    solicitud.Prioridad.Nombre = datos.lector.GetString(4);
-                    solicitud.Problematica.Nombre = datos.lector.GetString(5);
+                    solicitud.Problematica.Nombre = datos.lector.GetString(4);
+                    solicitud.Prioridad.Nombre = datos.lector.GetString(5);
                     lista.Add(solicitud);
 
                 }

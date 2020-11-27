@@ -22,7 +22,6 @@ namespace TPC_RodriguezLeandro
                 var idsolicitud = Convert.ToInt64(Request.QueryString["ids"].ToString());
                 solicitud = negocio.mostrar_abiertas(idsolicitud);
                 lista = negociocom.listardesolicitud(idsolicitud);
-                
 
             }
             catch (Exception ex)
@@ -54,10 +53,10 @@ namespace TPC_RodriguezLeandro
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -66,6 +65,7 @@ namespace TPC_RodriguezLeandro
             SolicitudNegocio negocio = new SolicitudNegocio();
             solicitud.FechaFin = DateTime.Today;
             negocio.solucionar(solicitud);
+
             Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
         }
     }

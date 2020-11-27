@@ -64,7 +64,7 @@
                 <td><% = item.Titulo %></td>
                 <td><% = item.Problematica.Nombre %></td>
                 <td><% = item.Estado.Nombre %></td>
-                <td><% = item.FechaFin %></td>
+                <td><% = item.FechaFin.ToShortDateString() %></td>
                 <td>
                     <a href="Solicitudinterna.aspx?ids=<%=item.ID %>">Ver solicitud</a>
                 </td>

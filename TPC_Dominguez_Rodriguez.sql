@@ -294,11 +294,11 @@ CREATE PROCEDURE SP_Alta_Comentario(
 	@IDSolicitud bigint,
 	@IDUsuario bigint,
 	@FechaComentario date,
-	@Comentario varchar(500)	
+	@Comentario varchar(500)
 )
 AS
 BEGIN
-INSERT INTO Comentarios VALUES (@IDSolicitud , @IDUsuario, @FechaComentario, @Comentario)
+INSERT INTO Comentarios VALUES (@IDSolicitud , @IDUsuario, @FechaComentario, @Comentario, null)
 END
 GO
 
@@ -308,10 +308,20 @@ Create procedure SP_Listar_Comentarios(
 )
 AS
 BEGIN
-SELECT C.ID, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
+SELECT C.ID, C.IDSolicitud, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
 FROM Comentarios as C
 INNER JOIN Usuarios AS U ON U.ID = C.IDUsuario
 WHERE C.IDSolicitud = @IDSolicitud
+END
+GO
+
+Create procedure SP_SolucionarComentario(
+	@ID BIGINT
+)
+AS
+BEGIN
+UPDATE Comentarios SET Solucion = 1
+WHERE ID = @ID
 END
 GO
 
@@ -372,3 +382,4 @@ go
 
 select * from Comentarios
 select * from Usuarios
+select * from Solicitudes
