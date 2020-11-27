@@ -21,6 +21,7 @@ namespace Negocio
                 datos.agregarParametros("@IDUsuario", comentarios.Usuario.ID);
                 datos.agregarParametros("@FechaComentario", comentarios.FechaComentario);
                 datos.agregarParametros("@Comentario", comentarios.Comentario);
+                datos.agregarParametros("@Solucion", false);
                 datos.EjecutarAccion();
 
             }
@@ -56,6 +57,7 @@ namespace Negocio
                     comentarios.Usuario.Apellidos = datos.lector.GetString(4);
                     comentarios.Comentario = datos.lector.GetString(5);
                     comentarios.FechaComentario = datos.lector.GetDateTime(6);
+                    comentarios.Solucion = datos.lector.GetBoolean(7);
                     lista.Add(comentarios);
                 }
                 return lista;

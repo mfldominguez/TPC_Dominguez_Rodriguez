@@ -54,7 +54,7 @@ CREATE TABLE Comentarios(
 	IDUsuario BIGINT NOT NULL,
 	FechaComentario date not null,
 	Comentario VARCHAR(500) NOT NULL,
-	Solucion bit null
+	Solucion BIT null
 )
 GO
 CREATE TABLE Estado_de_Solicitud(
@@ -107,9 +107,6 @@ Select U.*, TU.Nombre
 FROM Usuarios AS U
 INNER JOIN TipoUsuarios as TU ON TU.ID = U.IDTipodeusuario
 GO
-
-select * from Usuarios
-select * from TipoUsuarios
 
 Create View VW_ListaClientes AS
 Select * FROM Clientes
@@ -294,11 +291,12 @@ CREATE PROCEDURE SP_Alta_Comentario(
 	@IDSolicitud bigint,
 	@IDUsuario bigint,
 	@FechaComentario date,
-	@Comentario varchar(500)
+	@Comentario varchar(500),
+	@Solucion bit
 )
 AS
 BEGIN
-INSERT INTO Comentarios VALUES (@IDSolicitud , @IDUsuario, @FechaComentario, @Comentario, null)
+INSERT INTO Comentarios VALUES (@IDSolicitud , @IDUsuario, @FechaComentario, @Comentario, @Solucion )
 END
 GO
 
@@ -308,7 +306,7 @@ Create procedure SP_Listar_Comentarios(
 )
 AS
 BEGIN
-SELECT C.ID, C.IDSolicitud, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario
+SELECT C.ID, C.IDSolicitud, C.IDUsuario, U.Nombres, U.Apellidos, C.Comentario, C.FechaComentario, C.Solucion
 FROM Comentarios as C
 INNER JOIN Usuarios AS U ON U.ID = C.IDUsuario
 WHERE C.IDSolicitud = @IDSolicitud
@@ -380,6 +378,3 @@ go
 INSERT INTO Comentarios VALUES ( 1 , 1 , '2020/11/22', 'Se llamo al fabricante' )
 go
 
-select * from Comentarios
-select * from Usuarios
-select * from Solicitudes

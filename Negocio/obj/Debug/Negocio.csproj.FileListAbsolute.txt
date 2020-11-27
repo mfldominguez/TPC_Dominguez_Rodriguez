@@ -56,3 +56,12 @@ C:\Users\Usuario\Desktop\tp\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.cs
 C:\Users\Usuario\Desktop\tp\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\Usuario\Desktop\tp\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.dll
 C:\Users\Usuario\Desktop\tp\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\bin\Debug\Negocio.dll
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\bin\Debug\Dominio.dll
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.dll
+C:\Users\Fernando\Desktop\TPC\TPC_Dominguez_Rodriguez\Negocio\obj\Debug\Negocio.pdb
