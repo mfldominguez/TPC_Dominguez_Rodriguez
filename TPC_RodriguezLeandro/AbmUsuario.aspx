@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="AbmUsuario.aspx.cs" Inherits="TPC_RodriguezLeandro.AbmUsuario" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,11 +29,23 @@
                     <a href="ModificarUsuario.aspx?idu=<%=item.ID %>">Modificar</a>
                 </td>
                 <td>
+                    <%if (usuario.ID != item.ID)
+                            {%>
+                    <%
+                            if (item.Estado == true)
+                            {%>
                     <a href="EliminarUsuario.aspx?idu=<%=item.ID %>">Inactivar</a>
+                    <%} %>
+                    <%else
+                            {%>
+                    <a href="ActivarUsuario.aspx?idu=<%=item.ID %>">Activar</a>
+                    <%} %>
+                    <%} %>
+
                 </td>
             </tr>
             <%} %>
         </tbody>
     </table>
-    
+
 </asp:Content>

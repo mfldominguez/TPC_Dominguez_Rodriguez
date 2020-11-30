@@ -203,6 +203,7 @@ namespace Negocio
                 datos.comando.Parameters.Clear();
                 datos.agregarParametros("@ID", solicitud.ID);
                 datos.agregarParametros("@FechaFin", solicitud.FechaFin);
+                datos.agregarParametros("@IDEstado", solicitud.Estado.ID);
                 datos.EjecutarAccion();
 
             }

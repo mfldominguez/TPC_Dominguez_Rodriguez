@@ -204,19 +204,15 @@ GO
 
 Create Procedure SP_Comentar(
 	@ID bigint,
-	@FechaFin date
+	@FechaFin date,
+	@IDEstado int
 )
 AS
 BEGIN
-UPDATE Solicitudes SET FechaFin = @FechaFin
+UPDATE Solicitudes SET FechaFin = @FechaFin, IDEstado = @IDEstado
 WHERE ID = @ID
 END
 GO
-
-EXEC SP_Alta_Solicitud 1,1,1,'ASD','ASD',1,'06/07/2020'
-
-INSERT INTO Solicitudes VALUES (1,1,1,'asd','asd',1,'6/07/2020', NULL)
-go
 
 CREATE PROCEDURE SP_Validar_Usuario(
 	@NombreU varchar(50),
@@ -245,6 +241,16 @@ END
 GO
 
 CREATE PROCEDURE SP_Usuario_Inactivo(
+	@ID BIGINT,
+	@Estado bit
+)
+AS
+BEGIN 
+UPDATE Usuarios SET Estado = @Estado WHERE ID = @ID
+END
+GO
+
+CREATE PROCEDURE SP_Usuario_Activo(
 	@ID BIGINT,
 	@Estado bit
 )
@@ -301,6 +307,16 @@ END
 GO
 
 CREATE PROCEDURE SP_Cliente_Inactivo(
+	@ID int,
+	@Estado bit
+)
+AS
+BEGIN 
+UPDATE Clientes SET Estado = @Estado WHERE ID = @ID
+END
+GO
+
+CREATE PROCEDURE SP_Cliente_Activo(
 	@ID int,
 	@Estado bit
 )
@@ -395,7 +411,7 @@ go
 INSERT INTO Clientes VALUES ( 'Nestor' , 'Vive' , 1 , 'Almirante Brown 2234' , '47152345' , '2020/11/20' )
 go
 
-INSERT INTO Solicitudes VALUES ( 1 , 1 , 1 , 1 , 'Falla en la cortadora' , 'No corta la carne' , 1 , '2020/11/22', null )
+INSERT INTO Solicitudes VALUES ( 1 , 1 , 1 , 1 , 'Falla en la cortadora' , 'No corta la carne' , 1 , '2020/11/22', '2020/11/13')
 go
 
 INSERT INTO Comentarios VALUES ( 1 , 1 , '2020/11/22', 'Se llamo al fabricante' )

@@ -175,6 +175,30 @@ namespace Negocio
 
         }
 
+        public void activar(long ID)
+        {
+            AccesoaDatos datos = new AccesoaDatos();
+
+            try
+            {
+                datos.SetearSP("SP_Usuario_Activo");
+                datos.comando.Parameters.Clear();
+                datos.agregarParametros("@ID", ID);
+                datos.agregarParametros("@Estado", 1);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
+
         public void modificar(Usuario usuario)
         {
             AccesoaDatos datos = new AccesoaDatos();

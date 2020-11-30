@@ -15,6 +15,10 @@
                  Solucionado = true;
                  NumeroComentarioSolucion = Contador;
              }
+             if(solicitud.Estado.ID == 4)
+             {
+                 Solucionado = true;
+             }
          }
             %>
 
@@ -35,7 +39,7 @@
         <%} %>
       <% if (Solucionado == true)
           {%>
-    <p> SOLUCIONADO</p>
+    <p><%= solicitud.Estado.Nombre%></p>
     <%    } %>
     
 

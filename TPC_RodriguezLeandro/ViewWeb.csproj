@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="AbmClientes.aspx" />
     <Content Include="AbmUsuario.aspx" />
+    <Content Include="ActivarCliente.aspx" />
+    <Content Include="ActivarUsuario.aspx" />
     <Content Include="Altacliente.aspx" />
     <Content Include="Altasolicitud.aspx" />
     <Content Include="Altausuarios.aspx" />
@@ -100,6 +102,20 @@
     </Compile>
     <Compile Include="AbmUsuario.aspx.designer.cs">
       <DependentUpon>AbmUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivarCliente.aspx.cs">
+      <DependentUpon>ActivarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivarCliente.aspx.designer.cs">
+      <DependentUpon>ActivarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActivarUsuario.aspx.cs">
+      <DependentUpon>ActivarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivarUsuario.aspx.designer.cs">
+      <DependentUpon>ActivarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Altacliente.aspx.cs">
       <DependentUpon>Altacliente.aspx</DependentUpon>

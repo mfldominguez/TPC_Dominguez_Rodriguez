@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="AbmClientes.aspx.cs" Inherits="TPC_RodriguezLeandro.AbmClientes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -30,11 +31,15 @@
                     <a href="ModificarCliente.aspx?idc=<%=item.ID %>">Modificar</a>
                 </td>
                 <td>
-                    <% if (item.Estado == true)
+                    <%
+                        if (item.Estado == true)
                         {%>
                     <a href="EliminarCliente.aspx?idc=<%=item.ID %>">Inactivar</a>
                     <%} %>
-                    <a href="AbmClientes.aspx?idc=<%=item.ID %>">Activar</a>
+                    <%else
+                        {%>
+                    <a href="ActivarCliente.aspx?idc=<%=item.ID %>">Activar</a>
+                    <%} %>
 
                 </td>
 
@@ -42,5 +47,5 @@
             <%} %>
         </tbody>
     </table>
-    <a ID="link" class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <a id="link" class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 </asp:Content>
