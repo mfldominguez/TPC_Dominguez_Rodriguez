@@ -27,6 +27,7 @@
                 <th scope="col">Problematica</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Ultima Modificacion</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,7 @@
                 <td><% = item.Problematica.Nombre %></td>
                 <td><% = item.Estado.Nombre %></td>
                 <td><% = item.FechaInicio.ToShortDateString() %></td>
+                <td><% = item.FechaFin.ToShortDateString()  %></td>
                 <td>
                     <a href="Solicitudinterna.aspx?ids=<%=item.ID %>">Ver solicitud</a>
                 </td>
@@ -54,6 +56,7 @@
                 <th scope="col">Problematica</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha Fin</th>
+          
             </tr>
         </thead>
         <tbody>

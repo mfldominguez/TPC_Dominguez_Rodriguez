@@ -142,7 +142,7 @@ Create procedure SP_ListaSolicitud_Abierta(
 )
 AS
 BEGIN
-Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, P.Nombre, PRIO.Nombre FROM Solicitudes as S
+Select S.ID, S.Titulo, S.FechaInicio, ES.Nombre, P.Nombre, PRIO.Nombre, S.FechaFin FROM Solicitudes as S
 INNER JOIN Estado_de_Solicitud AS ES ON ES.ID = S.IDEstado
 INNER JOIN Problematicas as P ON P.ID = S.IDProblematica
 INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
@@ -171,11 +171,12 @@ Create procedure SP_Alta_Solicitud(
 	@Titulo varchar(100),
 	@Descripcion varchar(500),
 	@IDEstado int,
-	@FechaInicio date
+	@FechaInicio date,
+	@FechaFin date
 )
 AS 
 BEGIN
-INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @Titulo, @Descripcion, @IDEstado, @FechaInicio, null)
+INSERT INTO Solicitudes VALUES (@IDCliente, @IDUsuario, @IDProblematica, @IDPrioridad, @Titulo, @Descripcion, @IDEstado, @FechaInicio, @FechaFin)
 END
 GO
 
@@ -186,6 +187,28 @@ Create Procedure SP_Solucionar(
 AS
 BEGIN
 UPDATE Solicitudes SET IDEstado = 3, FechaFin = @FechaFin
+WHERE ID = @ID
+END
+GO
+
+Create Procedure SP_Cerrar(
+	@ID bigint,
+	@FechaFin date
+)
+AS
+BEGIN
+UPDATE Solicitudes SET IDEstado = 4, FechaFin = @FechaFin
+WHERE ID = @ID
+END
+GO
+
+Create Procedure SP_Comentar(
+	@ID bigint,
+	@FechaFin date
+)
+AS
+BEGIN
+UPDATE Solicitudes SET FechaFin = @FechaFin
 WHERE ID = @ID
 END
 GO

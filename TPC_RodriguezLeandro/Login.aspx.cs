@@ -28,6 +28,7 @@ namespace TPC_RodriguezLeandro
             }
 
             Session[Session.SessionID + "usuario"] = usuario;
+           
             Response.Redirect("Inicio.aspx");
         }
     }

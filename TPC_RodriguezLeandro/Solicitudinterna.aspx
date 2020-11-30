@@ -28,6 +28,11 @@
             <p class="card-text"><% = solicitud.FechaInicio.ToShortDateString() %></p>
         </div>
     </div>
+
+    <% if (Solucionado == false)
+        {%>
+    <asp:Button Text="Cerrar Solicitud" ID="btnCerrarSolicitud" runat="server" OnClick="btnCerrarSolicitud_Click" />
+        <%} %>
       <% if (Solucionado == true)
           {%>
     <p> SOLUCIONADO</p>

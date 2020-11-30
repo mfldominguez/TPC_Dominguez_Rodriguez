@@ -57,6 +57,7 @@ namespace TPC_RodriguezLeandro
                 nuevasoli.Problematica.Nombre = ddlProblemas.Text;
                 nuevasoli.Prioridad.ID = Convert.ToInt32(ddlPrioridad.SelectedValue);
                 nuevasoli.Prioridad.Nombre = ddlPrioridad.Text;
+                nuevasoli.FechaFin = DateTime.Today;
                 
                  
                 solinegocio.Alta(nuevasoli);

@@ -14,15 +14,15 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <ul class="nav nav-tabs">
+    <%--<ul class="nav nav-tabs" >
         <li class="nav-item">
             <a class="nav-link active" href="Inicio.aspx">Pagina principal</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="AbmUsuario.aspx">ABM Usuarios</a>
+        <li class="nav-item">         
+            <a class="nav-link" id="navabmusuario" visible="false" href="abmusuario.aspx">abm usuarios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="AbmClientes.aspx">ABM Clientes</a>
+            <a class="nav-link" id="navAbmClientes" visible="false" href="AbmClientes.aspx">ABM Clientes</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Reportes</a>
@@ -30,8 +30,20 @@
         <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
-    </ul>
+    </ul>--%>
     <form id="form1" runat="server">
+
+        <asp:Button Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
+
+        <asp:Button Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
+        
+        <asp:Button Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
+        
+        <asp:Button Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click"  />
+
+        <asp:Button Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />
+
+        
         <asp:ScriptManager runat="server">
         </asp:ScriptManager>
         <div>

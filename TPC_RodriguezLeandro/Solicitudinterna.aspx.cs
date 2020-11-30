@@ -49,6 +49,10 @@ namespace TPC_RodriguezLeandro
 
                 comentarioNegocio.alta(comentario);
 
+                SolicitudNegocio negocio = new SolicitudNegocio();
+                solicitud.FechaFin = DateTime.Today;
+                negocio.comentar(solicitud);
+
                 Response.Redirect("SolicitudInterna.aspx?ids=" + comentario.IDSolicitud);
 
 
@@ -65,6 +69,15 @@ namespace TPC_RodriguezLeandro
             SolicitudNegocio negocio = new SolicitudNegocio();
             solicitud.FechaFin = DateTime.Today;
             negocio.solucionar(solicitud);
+
+            Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
+        }
+
+        protected void btnCerrarSolicitud_Click(object sender, EventArgs e)
+        {
+            SolicitudNegocio negocio = new SolicitudNegocio();
+            solicitud.FechaFin = DateTime.Today;
+            negocio.cerrar(solicitud);
 
             Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
         }

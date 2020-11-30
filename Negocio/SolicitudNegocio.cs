@@ -28,6 +28,8 @@ namespace Negocio
                     solicitud.FechaInicio = datos.lector.GetDateTime(2);
                     solicitud.Estado.Nombre = datos.lector.GetString(3);
                     solicitud.Problematica.Nombre = datos.lector.GetString(4);
+                    solicitud.Prioridad.Nombre = datos.lector.GetString(5);
+                    solicitud.FechaFin = datos.lector.GetDateTime(6);
                     lista.Add(solicitud);
 
                 }
@@ -137,6 +139,7 @@ namespace Negocio
                 datos.agregarParametros("@IDEstado", solicitud.Estado.ID);
                 datos.agregarParametros("@FechaInicio", solicitud.FechaInicio);
                 datos.agregarParametros("@IDPrioridad", solicitud.Prioridad.ID);
+                datos.agregarParametros("@FechaFin", solicitud.FechaFin);
                 datos.EjecutarAccion();
 
             }
@@ -170,6 +173,49 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public void cerrar(Solicitud solicitud)
+        {
+            AccesoaDatos datos = new AccesoaDatos();
+            try
+            {
+                datos.SetearSP("SP_Cerrar");
+                datos.comando.Parameters.Clear();
+                datos.agregarParametros("@ID", solicitud.ID);
+                datos.agregarParametros("@FechaFin", solicitud.FechaFin);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+        public void comentar (Solicitud solicitud)
+        {
+            AccesoaDatos datos = new AccesoaDatos();
+            try
+            {
+                datos.SetearSP("SP_Comentar");
+                datos.comando.Parameters.Clear();
+                datos.agregarParametros("@ID", solicitud.ID);
+                datos.agregarParametros("@FechaFin", solicitud.FechaFin);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
 
 
     }
