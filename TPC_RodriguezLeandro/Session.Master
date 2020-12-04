@@ -16,9 +16,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <body style="background-image:url(https://www.aberdeen.com/wp-content/uploads/2018/06/call-center.jpg); background-size:contain; background-position:center; background-position-y:center; background-color:cadetblue; background-repeat: no-repeat; background-attachment: fixed";></body>
         </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

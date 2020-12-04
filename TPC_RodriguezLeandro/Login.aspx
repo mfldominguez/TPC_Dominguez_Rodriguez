@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    
+    <div style="text-align:center" class="container">
         <div class="row">
             <div class="col">
                 <h1>Login</h1>
@@ -12,12 +13,12 @@
         <div class="row">
             <div class=" col">
                 <div class="form-group">
-                    <label>Usuario</label>
-                    <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server" />
+                    <label style="margin-left:20px">Usuario</label>
+                    <asp:TextBox cssclass="align-content-lg-center" style="width:25%" ID="txtUsuario" runat="server" />
                 </div>
                 <div class="form-group">
                     <label>Contraseña</label>
-                    <asp:TextBox ID="txtPassword" CssClass="form-control" TextMode="Password" runat="server" />
+                    <asp:TextBox cssclass="align-content-lg-center" style="width:25%" ID="txtPassword" TextMode="Password" runat="server" />
                 </div>
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" runat="server" OnClick="btnAceptar_Click" />
             </div>
