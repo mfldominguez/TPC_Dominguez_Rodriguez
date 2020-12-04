@@ -37,9 +37,4 @@
         </tbody>
 
     </table>
-
-    <a href="Listadogeneral.aspx" id="btnInicioOPE" style="margin-top: 10px; margin-left: 10px; margin-bottom: 10px" class="btn btn-primary">Listado general</a>
-    <a href="AltaGeneral.aspx" id="btnAltaGeneral" style="margin-top: 10px; margin-left: 10px; margin-bottom: 10px" class="btn btn-primary">ALTAS</a>
-
-
 </asp:Content>

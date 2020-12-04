@@ -24,12 +24,14 @@ namespace TPC_RodriguezLeandro
 
             if( usuario.ID == 0)
             {
-                Response.Redirect("Login.aspx");
+                //Response.Redirect("Login.aspx");
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal2", "$('#modal2').modal();", true);
             }
 
             Session[Session.SessionID + "usuario"] = usuario;
-           
-            Response.Redirect("Inicio.aspx");
+
+            //Response.Redirect("Inicio.aspx");
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal1", "$('#modal1').modal();", true);
         }
     }
 }

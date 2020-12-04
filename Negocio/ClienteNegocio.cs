@@ -123,6 +123,7 @@ namespace Negocio
             {
                 datos.SetearSP("SP_Modificar_Cliente");
                 datos.comando.Parameters.Clear();
+                datos.agregarParametros("@ID", cliente.ID);
                 datos.agregarParametros("@Nombres", cliente.Nombres);
                 datos.agregarParametros("@Apellidos", cliente.Apellidos);
                 datos.agregarParametros("@Estado", cliente.Estado);

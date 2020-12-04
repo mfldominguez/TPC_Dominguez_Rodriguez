@@ -18,23 +18,23 @@ namespace TPC_RodriguezLeandro
             List<Usuario> lista = new List<Usuario>();
             lista = negocio.Listar();
 
-            if(!IsPostBack)
-            {
-            TipoUsuariosNegocio negocio1 = new TipoUsuariosNegocio();
-            ddlTipoUsuario.DataSource = negocio1.listar();
-            ddlTipoUsuario.DataValueField = "ID";
-            ddlTipoUsuario.DataTextField = "Nombre";
-            ddlTipoUsuario.DataBind();
-            }
-
             try
             {
                 var idusuario = Convert.ToInt64(Request.QueryString["idu"].ToString());
                 usuario = lista.Find(J => J.ID == idusuario);
-                txtApellidos.Text = usuario.Apellidos;
-                txtNombre.Text = usuario.Nombres;
-                txtUsuario.Text = usuario.NombreUsuario;
-                txtContraseña.Text = usuario.Contraseña;
+                if (!IsPostBack)
+                {
+                    TipoUsuariosNegocio negocio1 = new TipoUsuariosNegocio();
+                    ddlTipoUsuario.DataSource = negocio1.listar();
+                    ddlTipoUsuario.DataValueField = "ID";
+                    ddlTipoUsuario.DataTextField = "Nombre";
+                    ddlTipoUsuario.DataBind();
+                    txtApellidos.Text = usuario.Apellidos;
+                    txtNombre.Text = usuario.Nombres;
+                    txtUsuario.Text = usuario.NombreUsuario;
+                    txtContraseña.Text = usuario.Contraseña;
+                }
+
             }
             catch (Exception ex)
             {
@@ -56,7 +56,8 @@ namespace TPC_RodriguezLeandro
                 usuario.Apellidos = txtApellidos.Text;
                 usuario.Estado = true;
                 negocio.modificar(usuario);
-                Response.Redirect("AbmUsuario.aspx");
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal4", "$('#modal4').modal();", true);
+                //Response.Redirect("AbmUsuario.aspx");
             }
             catch (Exception ex)
             {

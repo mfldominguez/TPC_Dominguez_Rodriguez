@@ -41,4 +41,21 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modal4" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <asp:Label ID="Label1" runat="server" Text="">Modificar</asp:Label>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="Label2" runat="server" Text="">Datos de usuario modificados con exito</asp:Label>
+                </div>
+                <div class="modal-footer">
+                    <a href="AbmUsuario.aspx" class="btn btn-info">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

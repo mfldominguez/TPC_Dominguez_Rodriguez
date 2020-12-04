@@ -291,7 +291,7 @@ END
 GO
 
 CREATE PROCEDURE SP_Modificar_Cliente(
-	@ID BIGINT,
+	@ID INT,
 	@Nombres varchar(50),
 	@Apellidos varchar(50),
 	@Estado bit,

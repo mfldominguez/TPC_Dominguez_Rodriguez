@@ -36,14 +36,32 @@
         <asp:Button Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
 
         <asp:Button Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
-        
+
         <asp:Button Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
-        
-        <asp:Button Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click"  />
+
+        <asp:Button Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
 
         <asp:Button Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />
 
-        
+        <div class="modal fade" id="modalAltaSolicitud" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            <asp:Label ID="lblModalTitle" runat="server" Text="">Deslogeo</asp:Label>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="lblModalBody" runat="server" Text="">Has cerrado tu sesion correctamente.</asp:Label>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="Login.aspx" class="btn btn-info">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <asp:ScriptManager runat="server">
         </asp:ScriptManager>
         <div>
