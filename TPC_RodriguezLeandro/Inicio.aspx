@@ -7,7 +7,7 @@
     <h3>Usuarios: </h3>
 
     <asp:TextBox ID="txtBuscar" CssClass="form-control mr-sm-2" Style="margin-left: 15px" placeholder="Buscar por cliente" runat="server" />
-    <asp:Button ID="btnBuscar" Text="Buscar" runat="server" OnClick="btnBuscar_Click" />
+    <asp:Button class="btn btn-outline-info" ID="btnBuscar" Text="Buscar" runat="server" OnClick="btnBuscar_Click" />
     <table class="table">
         <thead>
             <tr>

@@ -32,16 +32,27 @@
         </li>
     </ul>--%>
     <form id="form1" runat="server">
+        <div class="container">
+            <div class="row justify-content-md-start">
+                <div class="col">
+                    <asp:Button class="btn btn-outline-primary" Text ="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
+                    <asp:Button class="btn btn-outline-secondary" Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
+                    <asp:Button class="btn btn-outline-secondary" Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
+                    <asp:Button class="btn btn-outline-success" Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
+                    <asp:Button class="btn btn-outline-danger" Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />
+                </div>
+                <div class="col-md-auto">
+                    <%--<div class="p-3 mb-2 bg-info text-dark"> Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>
+                    </div>--%>
 
-        <asp:Button Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
+                    <span class="border border-info">
+                        Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>
+                    </span>
 
-        <asp:Button Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
+                </div>
+            </div>
+        </div>
 
-        <asp:Button Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
-
-        <asp:Button Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
-
-        <asp:Button Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />
 
         <div class="modal fade" id="modalAltaSolicitud" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">

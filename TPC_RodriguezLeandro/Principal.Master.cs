@@ -11,9 +11,10 @@ namespace TPC_RodriguezLeandro
 {
     public partial class Principal : System.Web.UI.MasterPage
     {
+        public Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario();
+            //Usuario usuario = new Usuario();
             usuario = (Usuario)Session[Session.SessionID + "usuario"];
 
             if ( usuario.Tipo.ID == 1 )

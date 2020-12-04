@@ -112,6 +112,7 @@ namespace Negocio
                         usuario.Contraseña = datos.lector.GetString(3);
                         usuario.Nombres = datos.lector.GetString(4);
                         usuario.Apellidos = datos.lector.GetString(5);
+                        usuario.Tipo.Nombre = datos.lector.GetString(7);
                     }
 
                 }
