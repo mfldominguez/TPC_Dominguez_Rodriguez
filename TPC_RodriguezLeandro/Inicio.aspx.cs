@@ -33,7 +33,14 @@ namespace TPC_RodriguezLeandro
         {
             try
             {
-               
+                if (IsPostBack)
+                {
+                    if (txtBuscar.Text != "")
+                    {
+
+                        listaclientes = listaclientes.FindAll(k => k.Nombres.ToLower().Contains(txtBuscar.Text.ToLower()));
+                    }
+                }
 
             }
             catch (Exception ex)

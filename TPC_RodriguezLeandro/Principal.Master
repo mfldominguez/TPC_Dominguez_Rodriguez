@@ -32,10 +32,11 @@
         </li>
     </ul>--%>
     <form id="form1" runat="server">
+
         <div class="container">
             <div class="row justify-content-md-start">
                 <div class="col">
-                    <asp:Button class="btn btn-outline-primary" Text ="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
+                    <asp:Button class="btn btn-outline-primary" Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
                     <asp:Button class="btn btn-outline-secondary" Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
                     <asp:Button class="btn btn-outline-secondary" Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
                     <asp:Button class="btn btn-outline-success" Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
@@ -45,13 +46,14 @@
                     <%--<div class="p-3 mb-2 bg-info text-dark"> Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>
                     </div>--%>
 
-                    <span class="border border-info">
-                        Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>
+                    <span class="border border-info">Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>
                     </span>
 
                 </div>
             </div>
         </div>
+        <body style="background-color:gainsboro"></body>
+
 
 
         <div class="modal fade" id="modalAltaSolicitud" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
