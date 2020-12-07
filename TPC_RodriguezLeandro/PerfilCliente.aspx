@@ -3,22 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Cliente</h2>
-    <a href="Altasolicitud.aspx?idc=<% = cliente.ID%>">
+    <h3 style="margin-left: 15px">Cliente</h3>
+    <a style="margin-left: 15px" href="Altasolicitud.aspx?idc=<% = cliente.ID%>">
         <asp:Label ID="txtSolicitud" Text="Nueva solicitud" runat="server" />
     </a>
-    <div class="card" style="width: 25%">
-        <div class="card-body">
-            <h5 class="card-title"><% = cliente.Nombres %></h5>
-            <p class="card-text"><% = cliente.Apellidos %></p>
+    <div style="margin-top:30px; margin-bottom:30px">
+        <div class="card; border-dark;" style="width: 25%">
+            <div class="card-body; text-center">
+                <h6 class="card-title">Nombres/s: <% = cliente.Nombres %></h6>
+                <p class="card-text">Apellido/s: <% = cliente.Apellidos %></p>
+                <p class="card-text">Direccion: <% = cliente.Direccion %></p>
+                <p class="card-text">Telefono: <% = cliente.Telefono %></p>
 
-            <p class="card-text"><% = cliente.Direccion %></p>
-            <p class="card-text"><% = cliente.Telefono %></p>
+            </div>
 
         </div>
-
     </div>
-    <h3>Solicitudes abiertas</h3>
+    <h5 style="margin-left: 15px">Solicitudes abiertas</h5>
     <table class="table">
         <thead>
             <tr>
@@ -47,7 +48,7 @@
             <%} %>
         </tbody>
     </table>
-    <h3>Solicitudes cerradas</h3>
+    <h5 style="margin-left: 15px">Solicitudes cerradas</h5>
     <table class="table">
         <thead>
             <tr>
@@ -56,7 +57,7 @@
                 <th scope="col">Problematica</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha Fin</th>
-          
+
             </tr>
         </thead>
         <tbody>

@@ -36,11 +36,12 @@
         <div class="container">
             <div class="row justify-content-md-start">
                 <div class="col">
-                    <asp:Button class="btn btn-outline-primary" Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
-                    <asp:Button class="btn btn-outline-secondary" Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
-                    <asp:Button class="btn btn-outline-secondary" Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
-                    <asp:Button class="btn btn-outline-success" Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
-                    <asp:Button class="btn btn-outline-danger" Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />
+                    <asp:Button style="margin-left:5px" class="btn btn-outline-primary" Text="Inicio" ID="btnInicio" runat="server" OnClick="btnInicio_Click" />
+                    <asp:Button style="margin-left:5px" class="btn btn-outline-secondary" Text="ABM Usuarios" ID="btnAbmUsuarios" Visible="false" runat="server" OnClick="btnAbmUsuarios_Click" />
+                    <asp:Button style="margin-left:5px" class="btn btn-outline-secondary" Text="ABM Clientes" ID="btnAbmClientes" Visible="false" runat="server" OnClick="btnAbmClientes_Click" />
+                    <asp:Button style="margin-left:5px" class="btn btn-outline-success" Text="Reportes" ID="btnReportes" Visible="false" runat="server" OnClick="btnReportes_Click" />
+                    <%--<asp:Button class="btn btn-outline-danger" Text="Log Out" ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" />--%>
+                    <asp:ImageButton style="margin-left:5px; margin-top:10px" ID="btndesloggeo" runat="server" ImageUrl="https://cdn.onlinewebfonts.com/svg/img_72532.png" Height="40px" Width="40px" OnClick="btnTilde_Click" />
                 </div>
                 <div class="col-md-auto">
                     <%--<div class="p-3 mb-2 bg-info text-dark"> Usuario : <% = usuario.NombreUsuario %>   Tipo Usuario : <% = usuario.Tipo.Nombre %>

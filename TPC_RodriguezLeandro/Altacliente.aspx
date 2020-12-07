@@ -14,19 +14,19 @@
             <div class="row">
                 <div class="col">
                     <asp:Label Text="Apellido/s" runat="server" />
-                    <asp:TextBox class="col" ID="txtApellidos" runat="server" />
+                    <asp:TextBox  class="col" ID="txtApellidos" runat="server" />
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <asp:Label Text="Direccion" runat="server" />
-                    <asp:TextBox class="col" ID="txtDireccion" runat="server" />
+                    <asp:TextBox  class="col" ID="txtDireccion" runat="server" />
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <asp:Label Text="Telefono" runat="server" />
-                    <asp:TextBox class="col" ID="txtTelefono" runat="server" />
+                    <asp:TextBox  class="col" ID="txtTelefono" runat="server" />
                 </div>
             </div>
             <div class="row">

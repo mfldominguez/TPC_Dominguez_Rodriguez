@@ -20,7 +20,8 @@
                     <label>Contraseña</label>
                     <asp:TextBox cssclass="align-content-lg-center" style="width:25%" ID="txtPassword" TextMode="Password" runat="server" />
                 </div>
-                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" runat="server" OnClick="btnAceptar_Click" />
+                <%--<asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" runat="server" OnClick="btnAceptar_Click" />--%>
+                <asp:ImageButton style="background-position:left" ID="btnTilde" runat="server" ImageUrl="http://pre10.deviantart.net/f046/th/pre/i/2012/218/d/b/tilde_by_miikita-d5a2zce.png" Height="65px" Width="65px" OnClick="btnTilde_Click" />
             </div>
         </div>
     </div>

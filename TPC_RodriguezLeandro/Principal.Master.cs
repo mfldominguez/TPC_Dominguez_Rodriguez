@@ -53,7 +53,14 @@ namespace TPC_RodriguezLeandro
             Response.Redirect("Reportes.aspx");
         }
 
-        protected void btnLogOut_Click(object sender, EventArgs e)
+        //protected void btnLogOut_Click(object sender, EventArgs e)
+        //{
+        //    Session[Session.SessionID + "usuario"] = null;
+        //    //Response.Redirect("Login.aspx");
+        //    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalAltaSolicitud", "$('#modalAltaSolicitud').modal();", true);
+        //}
+
+        protected void btnTilde_Click(object sender, ImageClickEventArgs e)
         {
             Session[Session.SessionID + "usuario"] = null;
             //Response.Redirect("Login.aspx");
