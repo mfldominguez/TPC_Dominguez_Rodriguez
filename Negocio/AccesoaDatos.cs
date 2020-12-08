@@ -15,8 +15,8 @@ namespace Negocio
 
         public AccesoaDatos()
         {
-            //conexion = new SqlConnection("data source=DESKTOP-I7DTO75\\SQLEXPRESS; initial catalog= TPC_Dominguez_Rodriguez; integrated security= sspi");
-            conexion = new SqlConnection("data source=DESKTOP-EEH48JR\\SQLEXPRESS; initial catalog= TPC_Dominguez_Rodriguez; integrated security= sspi");
+            conexion = new SqlConnection("data source=DESKTOP-I7DTO75\\SQLEXPRESS; initial catalog= TPC_Dominguez_Rodriguez; integrated security= sspi");
+            //conexion = new SqlConnection("data source=DESKTOP-EEH48JR\\SQLEXPRESS; initial catalog= TPC_Dominguez_Rodriguez; integrated security= sspi");
             comando = new SqlCommand();
             comando.Connection = conexion;
         }

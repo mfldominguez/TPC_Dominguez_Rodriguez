@@ -127,8 +127,9 @@ CREATE PROCEDURE SP_Solicitud(
 )
 AS
 BEGIN
-SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDProblematica, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre
+SELECT S.ID, S.IDCliente, S.IDUsuario, S.IDProblematica, S.Titulo, S.Descripcion, S.IDEstado, S.FechaInicio , U.Nombres, U.Apellidos, ES.Nombre,PRIO.Nombre
 FROM Solicitudes AS S
+INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad
 INNER JOIN Clientes AS C ON C.ID = S.IDCliente
 INNER JOIN Usuarios AS U ON U.ID = S.IDUsuario
 INNER JOIN Problematicas AS P ON P.ID = S.IDProblematica
@@ -197,10 +198,22 @@ Create Procedure SP_Cerrar(
 )
 AS
 BEGIN
-UPDATE Solicitudes SET IDEstado = 4, FechaFin = @FechaFin
+UPDATE Solicitudes SET IDEstado = 5, FechaFin = @FechaFin
 WHERE ID = @ID
 END
 GO
+
+Create Procedure SP_Reabrir(
+	@ID bigint
+)
+AS
+BEGIN
+UPDATE Solicitudes SET IDEstado = 1
+WHERE ID = @ID
+END
+GO
+
+select * from Estado_de_Solicitud
 
 Create Procedure SP_Comentar(
 	@ID bigint,
@@ -361,9 +374,6 @@ UPDATE Comentarios SET Solucion = 1
 WHERE ID = @ID
 END
 GO
-
-Select * from Usuarios 
-Select * from Clientes
 
 /* INSERTS */
 

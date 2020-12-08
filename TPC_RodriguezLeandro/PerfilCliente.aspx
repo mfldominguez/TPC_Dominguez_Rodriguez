@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3 style="margin-left: 15px">Cliente</h3>
+<div class="container">
+    <div></div>
+    <h3 style="margin-left: 15px"> Perfil del Cliente</h3>
     <a style="margin-left: 15px" href="Altasolicitud.aspx?idc=<% = cliente.ID%>">
         <asp:Label ID="txtSolicitud" Text="Nueva solicitud" runat="server" />
     </a>
@@ -27,6 +29,7 @@
                 <th scope="col">Titulo</th>
                 <th scope="col">Problematica</th>
                 <th scope="col">Estado</th>
+                <th scope="col">Prioridad</th>
                 <th scope="col">Fecha Inicio</th>
                 <th scope="col">Fecha Ultima Modificacion</th>
             </tr>
@@ -39,6 +42,7 @@
                 <td><% = item.Titulo %></td>
                 <td><% = item.Problematica.Nombre %></td>
                 <td><% = item.Estado.Nombre %></td>
+                <td><% = item.Prioridad.Nombre %></td>
                 <td><% = item.FechaInicio.ToShortDateString() %></td>
                 <td><% = item.FechaFin.ToShortDateString()  %></td>
                 <td>
@@ -78,4 +82,5 @@
         </tbody>
 
     </table>
+</div>
 </asp:Content>

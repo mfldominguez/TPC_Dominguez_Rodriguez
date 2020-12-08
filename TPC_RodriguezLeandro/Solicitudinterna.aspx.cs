@@ -47,6 +47,11 @@ namespace TPC_RodriguezLeandro
                 comentario.FechaComentario = DateTime.Today;
                 comentario.Comentario = txtComentario.Text;
 
+                if ( txtComentario.Text == "")
+                {
+                    Response.Redirect("SolicitudInterna.aspx?ids=" + comentario.IDSolicitud);
+                }
+
                 comentarioNegocio.alta(comentario);
 
                 SolicitudNegocio negocio = new SolicitudNegocio();
@@ -80,7 +85,16 @@ namespace TPC_RodriguezLeandro
             solicitud.FechaFin = DateTime.Today;
             negocio.cerrar(solicitud);
 
-            Response.Redirect("Inicio.aspx?");
+            //Response.Redirect("Inicio.aspx?");
+            Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
         }
+
+        protected void btnReabrir_Click(object sender, EventArgs e)
+        {
+            SolicitudNegocio negocio = new SolicitudNegocio();
+            negocio.reabrir(solicitud);
+            Response.Redirect("SolicitudInterna.aspx?ids=" + solicitud.ID);
+        }
+
     }
 }

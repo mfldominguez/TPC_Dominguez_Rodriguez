@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div class="container">
 
     <div class="form-group">
         <label style="margin-left: 10px" for="exampleFormControlInput1">Titulo</label>
@@ -23,7 +24,7 @@
 
         <asp:TextBox Style="margin-left: 10px; margin-top: 10px" ID="txtDescripcion" runat="server" TextMode="MultiLine" Width="551px" Height="146px" />
     </div>
-    <asp:Button Style="margin-left: 10px; margin-top: 10px" ID="btnCrearSolicitud" Text="Crear" runat="server" OnClick="btnCrearSolicitud_Click" Width="55px" />
+    <asp:Button Class="btn btn-outline-primary" Style="margin-left: 10px; margin-top: 10px" ID="btnCrearSolicitud" Text="Crear" runat="server" OnClick="btnCrearSolicitud_Click" Width="55px" />
 
     <div class="modal fade" id="modalAltaSolicitud" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -46,4 +47,5 @@
             </asp:UpdatePanel>
         </div>
     </div>
+</div>
 </asp:Content>

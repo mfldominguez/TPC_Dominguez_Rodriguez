@@ -64,7 +64,7 @@ namespace TPC_RodriguezLeandro
         {
             Session[Session.SessionID + "usuario"] = null;
             //Response.Redirect("Login.aspx");
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalAltaSolicitud", "$('#modalAltaSolicitud').modal();", true);
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal6", "$('#modal6').modal();", true);
         }
     }
 }

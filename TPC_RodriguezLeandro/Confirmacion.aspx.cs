@@ -26,11 +26,13 @@ namespace TPC_RodriguezLeandro
                 solicitud.FechaFin = DateTime.Today;
                 negocio.solucionar(solicitud);
                 negociocom.solucionar(idcomentario);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal8", "$('#modal8').modal();", true);
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
