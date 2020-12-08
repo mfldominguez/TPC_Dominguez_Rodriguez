@@ -83,7 +83,7 @@
                 <p>Comentario solucion</p>
                 <%} %>
 
-                <% if (  solicitud.Estado.ID == 1 || solicitud.Estado.ID == 2  )
+                <% if (  (solicitud.Estado.ID == 1 || solicitud.Estado.ID == 2  ) && item.Solucion == false )
                     {%>
                 <a class="btn btn-outline-success" href="Confirmacion.aspx?idc=<%=item.ID %>&ids=<%=item.IDSolicitud %> ">Solucionar</a>
                 <% }%>

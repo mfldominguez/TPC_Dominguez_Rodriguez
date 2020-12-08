@@ -14,6 +14,13 @@ namespace TPC_RodriguezLeandro
         public List<Cliente> lista { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)Session[Session.SessionID + "usuario"];
+            if ( usuario.Tipo.ID == 3 )
+            {
+                Response.Redirect("Inicio.aspx");
+            }
+
             ClienteNegocio negocio = new ClienteNegocio();
             lista = negocio.listarTODO();
             try

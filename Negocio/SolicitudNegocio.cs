@@ -247,7 +247,7 @@ namespace Negocio
             AccesoaDatos datos = new AccesoaDatos();
             try
             {
-                datos.SetearQuery("Select * from Solicitud");
+                datos.SetearQuery("SELECT S.ID, S.Titulo, S.FechaInicio, E.Nombre, P.Nombre, PRIO.Nombre,S.FechaFin, PRIO.ID, P.ID FROM Solicitudes AS S INNER JOIN Estado_de_Solicitud AS E ON e.ID = S.IDEstado INNER JOIN Prioridades AS PRIO ON PRIO.ID = S.IDPrioridad INNER JOIN Problematicas AS P ON P.ID = S.IDProblematica");
                 datos.comando.Parameters.Clear();
                 datos.EjecutarLector();
                 while (datos.lector.Read())
@@ -260,6 +260,8 @@ namespace Negocio
                     solicitud.Problematica.Nombre = datos.lector.GetString(4);
                     solicitud.Prioridad.Nombre = datos.lector.GetString(5);
                     solicitud.FechaFin = datos.lector.GetDateTime(6);
+                    solicitud.Prioridad.ID = datos.lector.GetInt32(7);
+                    solicitud.Problematica.ID = datos.lector.GetInt32(8);
                     lista.Add(solicitud);
 
                 }
